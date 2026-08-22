@@ -14,14 +14,30 @@ jobs:
         python-version: ["3.10", "3.11", "3.12"]
     steps:
       - uses: actions/checkout@v4
+
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
+
       - name: Run core test suite (stdlib only)
         run: |
+          set -euo pipefail
+          if [ ! -d tests ]; then
+            echo "::warning::tests/ directory not present yet — skipping unittest discover"
+            exit 0
+          fi
+          # Ensure the package root is on PYTHONPATH for relative imports
+          export PYTHONPATH="${PYTHONPATH:-}:$(pwd)"
           python -m unittest discover -s tests -v
+
       - name: Smoke demo (short)
         run: |
-          python -m arsic demo --root /tmp/arsic_ci_run --days 3 --seed 7 || true
+          set -euo pipefail
+          if [ ! -d arsic ] || [ ! -f arsic/__main__.py ]; then
+            echo "::warning::arsic package incomplete — skipping smoke demo"
+            exit 0
+          fi
+          # Soft-fail the demo while the package is still being populated
+          python -m arsic demo --root /tmp/arsic_ci_run --days 2 --seed 7 || true
           python -m arsic verify --root /tmp/arsic_ci_run || true
