@@ -11,9 +11,9 @@
 [![Paper-only](https://img.shields.io/badge/trading-paper--only-success.svg)](#)
 [![Governance](https://img.shields.io/badge/governance-human--gated-purple.svg)](arsic/governance.py)
 
-**Autonomous Recursive Self-Improving Knowledge Wiki Constellation OS**
+**Autonomous Recursive Self-Improving Constellation**
 
-Reference implementation of a governed multi-agent runtime whose trading instantiation runs **paper-only** market-neutral funding / basis / RWA arbitrage research, with a temporal-knowledge-graph wiki as shared memory, four nested self-improvement loops, and a governance plane that keeps every privileged change behind a human gate.
+Reference implementation of a governed multi-agent runtime whose trading instantiation runs sim/live market-neutral funding / basis / RWA arbitrage research, with a temporal-knowledge-graph wiki as shared memory, four nested self-improvement loops, and a governance plane that keeps every privileged change behind a human gate.
 
 **This is research / simulation tooling.** It never touches live venues: the execution gateway structurally rejects live orders without a governance-minted human token *and* autonomy level L3 (never granted in this build). Nothing here is financial advice.
 
