@@ -1,0 +1,23 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.ANAMIZED/arsic",
+  "title": "ARSIC",
+  "description": "Paper-trading constellation: governed RWA research, MCP, CLI. Simulation only.",
+  "repository": {
+    "url": "https://github.com/ANAMIZED/ARSIC",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "websiteUrl": "https://anamized.github.io/ARSIC/ARSIC-4.html",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "registryBaseUrl": "https://pypi.org",
+      "identifier": "arsic",
+      "version": "0.1.0",
+      "runtimeHint": "uvx",
+      "transport": { "type": "stdio" },
+      "environmentVariables": []
+    }
+  ]
+}
